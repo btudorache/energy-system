@@ -1,0 +1,87 @@
+Tudorache Bogdan-Mihai 324CA
+
+POO Proiect etapa 2
+
+## Introducere
+
+    Proiectul are in mare parte aceleasi functionalitati ca si la etapa 1. Singurele schimbari majore sunt introducerea
+    producatorilor, introducerea strategiilor de alegere a producatorilor si mecanismul de update al alegerii
+    producatorilor.
+
+    Nu voi mai prezenta toate clasele in parte, ci numai pe cele noi adaugate si eventualele schimbari
+    ale celorlalte clase.
+
+## Prezentarea claselor
+
+    # Pachetul strategy #
+
+    Aici se afla toate clasele legate de alegerea strategiilor
+
+        ## EnergyChoiceStrategy
+
+        In aceasta clasa este definita clasa abstracta ce functioneaza ca blueprint pentru implementarea strategiilor
+
+
+        ## EnergyChoiceStrategyFactory
+
+        O clasa factory pentru creearea diferitelor strategy
+
+
+        ## EnergyChoiceStrategyType
+
+        O clasa enum cu tipurile de strategii disponibile
+
+
+
+        ## GreenEnergyChoiceStrategy
+
+        Implementarea strategiei de cautare green. Elemente de programare functionala din java 8 pentru filtrare.
+
+
+        ## PriceEnergyChoiceStrategy
+
+        Implementarea strategiei de cautare price. Elemente de programare functionala din java 8 pentru filtrare.
+
+
+
+        ## QuantityEnergyChoiceStrategy
+
+        Implementarea strategiei de cautare quantity. Elemente de programare functionala din java 8 pentru filtrare.
+
+
+
+    # Pachetul models #
+
+        ## Consumer
+
+        In consumer, fata de etapa anterioara s-a modificat numai situatia in care consumatorul are datorie la un
+        distribuitor cu care continua contractul.
+
+
+        ## Distributor
+
+        Clasa Distributor contine acum strategia prin care isi calculeaza costul de productie. De asemenea implementeaza
+        interfata Observer, pentru ca Producerii notifica distribuitorii cand se modifica preturile lunare.
+
+
+        ## Producer
+
+        Clasa producer este noua adaugata si modeleaza un producator de energie. Contine lista distribuitorilor spre care
+        vinde energie, si implementeaza interfata Obersvable, pentru a notifica distribuitorii cand isi modifica preturile.
+        notificarea are loc in metoda de set a cantitatii de energie trimisa catre distribuitori. Acestia sunt notificati
+        ca trebuie sa isi caute noi producatori la finalul lunii.
+
+
+    # Simulation
+
+    Logica simularii s-a schimbat conform cerintelor din enuntul proiectului. Entry point-ul simularii este metoda runSimulation().
+
+
+
+
+
+
+
+
+
+
