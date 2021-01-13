@@ -8,6 +8,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
+/**
+ * Green strategy implementation
+ */
 public final class GreenEnergyChoiceStrategy extends EnergyChoiceStrategy {
     public GreenEnergyChoiceStrategy(final Distributor distributor) {
         super(distributor);

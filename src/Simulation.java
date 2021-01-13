@@ -64,7 +64,7 @@ public final class Simulation {
 
     /**
      * Updates the monthly changes and updates the new distributor prices
-     * @param monthlyUpdateData data used to update the simulation data
+     * @param monthlyUpdateData data used to update the simulation
      */
     private void updateInitialMonthlyChanges(final MonthlyUpdateData monthlyUpdateData) {
         if (!monthlyUpdateData.getNewConsumers().isEmpty()) {
@@ -88,6 +88,10 @@ public final class Simulation {
         }
     }
 
+    /**
+     * Updates the producers in the middle of the turn
+     * @param monthData data used to update the simulation
+     */
     private void updateProducerChanges(final MonthlyUpdateData monthData) {
         if (!monthData.getProducerChanges().isEmpty()) {
             for (ProducerChangeData producerData : monthData.getProducerChanges()) {
@@ -142,6 +146,9 @@ public final class Simulation {
         consumer.setNewContract(contract);
     }
 
+    /**
+     * Adds changes to producers in the first turn
+     */
     private void initialUpdateDistributors() {
         for (Distributor distributor : this.distributorList) {
             if (!distributor.isBankrupt()) {
@@ -205,8 +212,7 @@ public final class Simulation {
             }
         }
 
-
-
+        // adds monthly stats to the producers
         for (Producer producer : producerList) {
             producer.addMonthlyStat(new MonthlyStat(monthNumber, producer.getDistributors()));
         }

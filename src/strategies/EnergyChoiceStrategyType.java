@@ -14,9 +14,9 @@ public enum EnergyChoiceStrategyType {
     }
 
     /**
-     *
-     * @param strategy
-     * @return
+     * EnergyChoiceStrategyType factory method
+     * @param strategy strategy to be used
+     * @return specific enum type
      */
     public static EnergyChoiceStrategyType getStrategyType(final String strategy) {
         return switch (strategy) {

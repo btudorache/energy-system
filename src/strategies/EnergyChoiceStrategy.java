@@ -6,30 +6,30 @@ import models.Producer;
 import java.util.ArrayList;
 
 /**
- *
+ * Abstract Choice Strategy used for choosing producers
  */
 public abstract class EnergyChoiceStrategy {
-    private Distributor distributor;
+    private final Distributor distributor;
 
     /**
-     *
-     * @param distributor
+     * Strategy Constructor
+     * @param distributor distributor that uses strategy
      */
     public EnergyChoiceStrategy(final Distributor distributor) {
         this.distributor = distributor;
     }
 
     /**
-     *
-     * @param producers
-     * @return
+     * Producer choice strategy method that needs to be implemented
+     * @param producers list of producers to choose from
+     * @return list of sorted producers by strategy
      */
     public abstract ArrayList<Producer> chooseProducers(ArrayList<Producer> producers);
 
     /**
-     *
-     * @param sortedProducers
-     * @return
+     * Selects the first N producers needed to generate energy
+     * @param sortedProducers list of sorted producers by specific strategy
+     * @return list of producers chosen
      */
     public ArrayList<Producer> filterFirstProducers(final ArrayList<Producer> sortedProducers) {
         ArrayList<Producer> chosenProducers = new ArrayList<>();

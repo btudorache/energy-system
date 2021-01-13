@@ -70,7 +70,9 @@ public final class Consumer extends Entity {
      * Method used to pay contract price
      */
     public void payContract() {
+        // if consumer owes pay
         if (this.owesPay) {
+            // if consumer is continuing contract
             if (this.continuingContract) {
                 int valueToPay = (int) (Math.round(Math.floor(PENALTY_FACTOR * this.payOwed)));
                 if (this.getBudget() - valueToPay < 0) {
@@ -80,6 +82,7 @@ public final class Consumer extends Entity {
                     this.distributorOwed.getContractPay(valueToPay);
                     removeOwesPay();
                 }
+                // if consumer is not continuing contract
             } else {
                 int valueToPay = (int) (Math.round(Math.floor(PENALTY_FACTOR * this.payOwed))
                         + this.getContract().getMonthlyPay());
@@ -95,6 +98,7 @@ public final class Consumer extends Entity {
                     removeOwesPay();
                 }
             }
+        // if consumer doesn't owe pay
         } else {
             if (this.getBudget() - this.getContract().getMonthlyPay() < 0) {
                 this.setOwesPay(this.getContract().getMonthlyPay(),

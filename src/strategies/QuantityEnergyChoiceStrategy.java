@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * Quantity strategy implementation
+ */
 public final class QuantityEnergyChoiceStrategy extends EnergyChoiceStrategy {
     public QuantityEnergyChoiceStrategy(final Distributor distributor) {
         super(distributor);

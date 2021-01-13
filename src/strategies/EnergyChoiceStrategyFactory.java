@@ -6,10 +6,10 @@ public final class EnergyChoiceStrategyFactory {
     private EnergyChoiceStrategyFactory() { }
 
     /**
-     *
-     * @param strategyType
-     * @param distributor
-     * @return
+     * EnergyChoiceStrategy factory method
+     * @param strategyType strategy type wanted
+     * @param distributor distributor that uses strategy
+     * @return specific strategy type
      */
     public static EnergyChoiceStrategy createStrategy(final EnergyChoiceStrategyType strategyType,
                                                       final Distributor distributor) {

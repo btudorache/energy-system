@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 public final class Producer extends Observable {
-    private int id;
-    private EnergyType energyType;
-    private int maxDistributors;
+    private final int id;
+    private final EnergyType energyType;
+    private final int maxDistributors;
     private double priceKW;
     private int energyPerDistributor;
 
-    private ArrayList<Distributor> distributors;
-    private ArrayList<MonthlyStat> monthlyStats;
+    private final ArrayList<Distributor> distributors;
+    private final ArrayList<MonthlyStat> monthlyStats;
 
     public Producer(final ProducerData producerData) {
         this.id = producerData.getId();
@@ -33,24 +33,24 @@ public final class Producer extends Observable {
     }
 
     /**
-     *
-     * @param distributor
+     * Adds a new distributor to the list
+     * @param distributor distributor to be added
      */
     public void addDistributor(final Distributor distributor) {
         this.distributors.add(distributor);
     }
 
     /**
-     *
-     * @param distributor
+     * removes a distributor from the list
+     * @param distributor distributor to be removed
      */
     public void removeDistributor(final Distributor distributor) {
         this.distributors.remove(distributor);
     }
 
     /**
-     *
-     * @param status
+     * Adds a monthly status for the producer
+     * @param status status to be added
      */
     public void addMonthlyStat(final MonthlyStat status) {
         this.monthlyStats.add(status);
@@ -85,8 +85,8 @@ public final class Producer extends Observable {
     }
 
     /**
-     *
-     * @param energyPerDistributor
+     * Sets the new monthly energy change and notifies the observers for the change
+     * @param energyPerDistributor new monthly energy value
      */
     public void setEnergyPerDistributor(final int energyPerDistributor) {
         this.energyPerDistributor = energyPerDistributor;

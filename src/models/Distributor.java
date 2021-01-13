@@ -63,8 +63,8 @@ public final class Distributor extends Entity implements Observer {
     }
 
     /**
-     *
-     * @param producerList
+     * Updates the producers list if there is a monthly change
+     * @param producerList producer list to search from
      */
     public void updateProducers(final ArrayList<Producer> producerList) {
         for (Producer producer : contractedProducers) {
@@ -83,8 +83,8 @@ public final class Distributor extends Entity implements Observer {
     }
 
     /**
-     *
-     * @param producerList
+     * Finds new producers
+     * @param producerList producer list to search from
      */
     public void findProducers(final ArrayList<Producer> producerList) {
         this.contractedProducers = this.strategy.chooseProducers(producerList);

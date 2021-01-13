@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * Price strategy implementation
+ */
 public final class PriceEnergyChoiceStrategy extends EnergyChoiceStrategy {
     public PriceEnergyChoiceStrategy(final Distributor distributor) {
         super(distributor);
