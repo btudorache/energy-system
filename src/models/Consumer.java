@@ -8,6 +8,7 @@ import fileio.input.ConsumerData;
 public class Consumer extends Entity {
     private static final double PENALTY_FACTOR = 1.2;
 
+    private boolean continuingContract;
     private Distributor distributorOwed;
     private boolean owesPay;
     private int payOwed;
@@ -25,12 +26,17 @@ public class Consumer extends Entity {
            super(consumerData.getId(), consumerData.getInitialBudget());
            this.monthlyIncome = consumerData.getMonthlyIncome();
 
+           this.continuingContract = false;
            this.holdingContract = false;
            this.contract = null;
 
            this.distributorOwed = null;
            this.owesPay = false;
            this.payOwed = -1;
+    }
+
+    public void setContinuingContract(boolean continuingContract) {
+        this.continuingContract = continuingContract;
     }
 
     public final boolean isHoldingContract() {
@@ -65,19 +71,30 @@ public class Consumer extends Entity {
      */
     public void payContract() {
         if (this.owesPay) {
-            int valueToPay = (int) (Math.round(Math.floor(PENALTY_FACTOR * this.payOwed))
-                    + this.getContract().getMonthlyPay());
-            if (this.getBudget() - valueToPay < 0) {
-                this.setBankrupt(true);
+            if (this.continuingContract) {
+                int valueToPay = (int) (Math.round(Math.floor(PENALTY_FACTOR * this.payOwed)));
+                if (this.getBudget() - valueToPay < 0) {
+                    this.setBankrupt(true);
+                } else {
+                    this.setBudget(this.getBudget() - valueToPay);
+                    this.distributorOwed.getContractPay(valueToPay);
+                    removeOwesPay();
+                }
             } else {
-                this.setBudget(this.getBudget() - valueToPay);
+                int valueToPay = (int) (Math.round(Math.floor(PENALTY_FACTOR * this.payOwed))
+                        + this.getContract().getMonthlyPay());
+                if (this.getBudget() - valueToPay < 0) {
+                    this.setBankrupt(true);
+                } else {
+                    this.setBudget(this.getBudget() - valueToPay);
 
-                this.distributorOwed.getContractPay(
-                        (int) (Math.round(Math.floor(PENALTY_FACTOR * this.payOwed))));
-                this.getContract().getDistributorContracted()
-                        .getContractPay(this.getContract().getMonthlyPay());
+                    this.distributorOwed.getContractPay(
+                            (int) (Math.round(Math.floor(PENALTY_FACTOR * this.payOwed))));
+                    this.getContract().getDistributorContracted()
+                            .getContractPay(this.getContract().getMonthlyPay());
+                    removeOwesPay();
+                }
             }
-            removeOwesPay();
         } else {
             if (this.getBudget() - this.getContract().getMonthlyPay() < 0) {
                 this.setOwesPay(this.getContract().getMonthlyPay(),

@@ -129,6 +129,10 @@ public final class Simulation {
         // remove old contract
         if (consumer.isHoldingContract()) {
             Distributor distributor = consumer.getContract().getDistributorContracted();
+
+            // check if consumes is continuing the contract with the previous distributor
+            consumer.setContinuingContract(distributor.equals(contract.getDistributorContracted()));
+
             distributor.removeContract(consumer.getContract());
             consumer.removeContract();
         }
