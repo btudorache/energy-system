@@ -5,3 +5,4 @@ out/
 results.out
 checkstyle.txt
 src/checker/
+src/Test.java
