@@ -5,7 +5,7 @@ import fileio.input.ConsumerData;
 /**
  * Abstract class used to model a consumer
  */
-public class Consumer extends Entity {
+public final class Consumer extends Entity {
     private static final double PENALTY_FACTOR = 1.2;
 
     private boolean continuingContract;
@@ -35,27 +35,27 @@ public class Consumer extends Entity {
            this.payOwed = -1;
     }
 
-    public void setContinuingContract(boolean continuingContract) {
+    public void setContinuingContract(final boolean continuingContract) {
         this.continuingContract = continuingContract;
     }
 
-    public final boolean isHoldingContract() {
+    public boolean isHoldingContract() {
         return holdingContract;
     }
 
-    public final Contract getContract() {
+    public Contract getContract() {
         return contract;
     }
 
-    public final void setHoldingContract(final boolean holdingContract) {
+    public void setHoldingContract(final boolean holdingContract) {
         this.holdingContract = holdingContract;
     }
 
-    public final void setContract(final Contract contract) {
+    public void setContract(final Contract contract) {
         this.contract = contract;
     }
 
-    public final int getMonthlyIncome() {
+    public int getMonthlyIncome() {
         return this.monthlyIncome;
     }
 
