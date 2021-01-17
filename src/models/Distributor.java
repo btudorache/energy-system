@@ -38,7 +38,8 @@ public final class Distributor extends Entity implements Observer {
         this.energyNeeded = distributorData.getEnergyNeededKW();
         this.strategyType = EnergyChoiceStrategyType
                 .getStrategyType(distributorData.getProducerStrategy());
-        this.strategy = EnergyChoiceStrategyFactory.createStrategy(this.strategyType, this);
+        this.strategy = EnergyChoiceStrategyFactory.getInstance()
+                .createStrategy(this.strategyType, this);
         this.contractedProducers = null;
 
         this.infrastructureCost = distributorData.getInitialInfrastructureCost();
