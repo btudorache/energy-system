@@ -166,7 +166,9 @@ public final class Simulation {
     }
 
     /**
-     * check if any entity has become bankrupt at the end of the month
+     * Check if any entity has become bankrupt at the end of the month;
+     * Check if distributors need to update producers
+     * Add month end stats to producers
      */
     private void checkMonthEnd(final int monthNumber) {
         for (Consumer consumer : consumerList) {
