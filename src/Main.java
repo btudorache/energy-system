@@ -5,9 +5,9 @@ public final class Main {
     private Main() { }
 
     /**
-     *
-     * @param args
-     * @throws Exception
+     * Main entrypoint of the program
+     * @param args command line arguments
+     * @throws Exception compile-time exception type
      */
     public static void main(final String[] args) throws Exception {
         JsonFileIO fileIO = new JsonFileIO(args[0], args[1]);
