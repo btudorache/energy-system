@@ -10,8 +10,6 @@ import java.util.ArrayList;
  * Singleton class used to model the simulation.
  */
 public final class Simulation {
-    private static Simulation instance = null;
-
     private final ArrayList<Consumer> consumerList;
     private final ArrayList<Distributor> distributorList;
     private final ArrayList<Producer> producerList;
@@ -19,30 +17,12 @@ public final class Simulation {
 
     private final ArrayList<MonthlyUpdateData> monthlyUpdates;
 
-    /**
-     * Gets the instance of a singleton
-     * @param data information used to create simulation
-     * @return returns the instance
-     */
-    public static Simulation getInstance(final InputData data) {
-        if (instance == null) {
-            instance = new Simulation(data);
-        }
-        return instance;
-    }
-
-    /**
-     * clears the instance of the singleton
-     */
-    public static void clearInstance() {
-        instance = null;
-    }
 
     /**
      * Constructor for the Simulation class. Holds all the information necessary.
      * @param data input data used to construct the simulation
      */
-    private Simulation(final InputData data) {
+    public Simulation(final InputData data) {
         this.consumerList = new ArrayList<>();
         for (ConsumerData consumerData : data.getInitialData().getConsumers()) {
             this.consumerList.add(new Consumer(consumerData));

@@ -11,10 +11,8 @@ public final class Main {
      */
     public static void main(final String[] args) throws Exception {
         JsonFileIO fileIO = new JsonFileIO(args[0], args[1]);
-        Simulation simulation = Simulation.getInstance(fileIO.getData());
+        Simulation simulation = new Simulation(fileIO.getData());
         SimulationResult results = simulation.runSimulation();
         fileIO.writeData(results);
-
-        Simulation.clearInstance();
     }
 }
