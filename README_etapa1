@@ -1,0 +1,112 @@
+Tudorache Bogdan-Mihai 324CA
+
+POO Proiect etapa 1
+
+# Introducere
+
+    In clasa Main se citesc fisierele de intrare si de iesire, se creeaza o simulare folosing datele de la input, iar
+    rezultatul simularii se scrie in fisierul de iesire.
+
+    Structura generala a codului este urmatoarea:
+
+    In clasele din pachetul fileio se afla toate clasele folosite pentru citire si scriere. In pachetul input se afla
+    clasele care definesc structura in care sa fie parsate datele de input de catre libraria jackson. Clasele din
+    pachetul output definesc structura in care sa fie scrise datele de output de catre libraria jackson.
+
+    Clasa JsonFileIO se ocupa cu scrierea si citirea proriu-zisa.
+
+    In clasele din pachetul models se afla modelarea entitatilor folosite pentru simulare.
+
+    Clasa simulation contine datele necesare pentru simulare si contine logica simulari ipropriu-zise.
+
+
+# Clase - descrierea claselor folosite
+
+    # Pachetul fileio #
+
+        ## Clasele din sub-pachetul input ##
+
+        Toate clasele din input definesc structura in care datele sa fie parsate de catre bibloteca jackson. Clasa
+        principala in care se afla toate datele de intrare este InputData.
+
+
+        ## Clasele din sub-pachetul output ##
+
+        Toate clasele din output definesc structura in care datele sa fie scrise in format json de catre biblioteca
+        jackson. Clasa principala in care se afla toate datele de output este SimulationResult
+
+
+        ## JsonFileIO ##
+
+        Clasa care se ocupa de citirea si scrierea in fisiere in format json. In constructor se citesc datele de intrare,
+        si se poate primi ca parametru un SimulationResult prin metoda writeData() pentru a scrie datele in fisierul de
+        iesire.
+
+
+
+    # Pachetul models #
+
+        ## Entity ##
+
+        Clasa abstracta care contine informatiile comune tuturor entitatilor (consumatori, distribuitori...).
+
+
+        ## Distributor ##
+
+        Clasa care modeleaza un distribuitor. Contine mai multe functionalitati, precum stabilirea noului pret, adaugarea
+        unui consumator nou in lista de clienti, plata sumei de productie etc... .
+
+
+        ## Consumer ##
+
+        Clasa abstracta care modeleaza un consumator. Contime mai multe functionalitati, precum primirea salariului,
+        plata sumei stabilita in contract spre un distribuitor, obtinerea salariului etc... .
+
+
+        ## ConcreteConsumer ##
+
+        Implementarea clasei abstracte Consumer. Contine logica platii contractului in diferite situatii (Daca nu poate
+        sa plateasca in luna actuala, daca are datorie de luna trecuta...) si alte flaguri ce faciliteaza plata spre un
+        distribuitor.
+
+
+        ## models.factory.ConsumerFactory ##
+
+        Factory pentru obiectele ce implementeaza metodele din clasa abstracta Consumer.
+
+
+        ## Contract ##
+
+        Clasa care modeleaza un contract. Contine toate informatiile necesare, precum suma stabilita, si entitatile
+        intre care s-a stabilit contractul.
+
+
+
+    # Simulation #
+
+    Clasa care contine logica principala a simularii si toate datele necesare pentru a rula simularea.
+
+    In constructor primeste toate datele din fisierul de intrare, parsate 'frumos' intr-un obiect de tip InputData.
+    Ca si campuri, simularea contine o lista de consumatori, una de distribuitori si lista de schimbari lunare.
+
+    Metoda runSimulation() ruleaza logica simularii, iar la final informatiile finale legate de simulare sunt intoarse
+    intr-un obiect SimulationResult, pentru a fi scris la output.
+
+    Simularea unei ture are 4 etape:
+    - se adauga update-urile lunare (daca exista) si se stabilesc noile preturi
+    - consumatorii primesc salariu, isi cauta un contract daca nu au deja unul sau daca urmeaza sa expire, dupa care
+    platesc contractul
+    - distribuitorii platesc preturile de productie
+    - se verifica daca vreo entitate a dat faliment
+    Exista cate o metoda care rezolva fiecare dintre aceste actiuni, si care se folosesc de metodele unui consumator sau
+    ale unui distribuitor pentru a rezolva fiecare dintre aceste etape.
+
+
+
+
+
+
+
+
+
+
