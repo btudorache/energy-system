@@ -121,3 +121,11 @@ schimba pretul energiei.
 
 ## Extra
 
+Pentru cerintele complete ale proiectului consultati enuntul pentru [prima etapa](https://github.com/btudorache/energy-system/blob/master/extra/enunt_etapa1.pdf) 
+si a [doua etapa](https://github.com/btudorache/energy-system/blob/master/extra/enunt_etapa2.pdf)
+
+Pentru detalii complete de implementare consultati fisierele README pentru [prima etapa](https://github.com/btudorache/energy-system/blob/master/extra/README_etapa1) 
+si a [doua etapa](https://github.com/btudorache/energy-system/blob/master/extra/README_etapa2)
+
+Am inclus exemplele de [input](https://github.com/btudorache/energy-system/blob/master/extra/inputExample.json) 
+si de [output](https://github.com/btudorache/energy-system/blob/master/extra/outputExample.json) din enuntul problemei
