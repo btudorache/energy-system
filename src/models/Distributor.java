@@ -1,6 +1,7 @@
 package models;
 
 import fileio.input.DistributorData;
+import models.producer.Producer;
 import strategies.EnergyChoiceStrategy;
 import strategies.EnergyChoiceStrategyFactory;
 import strategies.EnergyChoiceStrategyType;

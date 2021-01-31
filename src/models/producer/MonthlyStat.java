@@ -1,4 +1,4 @@
-package fileio.output.data;
+package models.producer;
 
 import models.Distributor;
 

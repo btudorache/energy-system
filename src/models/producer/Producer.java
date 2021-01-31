@@ -1,8 +1,7 @@
-package models;
+package models.producer;
 
-import entities.EnergyType;
 import fileio.input.ProducerData;
-import fileio.output.data.MonthlyStat;
+import models.Distributor;
 
 import java.util.ArrayList;
 import java.util.Observable;

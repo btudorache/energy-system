@@ -1,6 +1,6 @@
 package fileio.output;
 
-import fileio.output.data.MonthlyStat;
+import models.producer.MonthlyStat;
 
 import java.util.ArrayList;
 

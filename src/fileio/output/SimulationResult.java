@@ -2,7 +2,7 @@ package fileio.output;
 
 import models.Consumer;
 import models.Distributor;
-import models.Producer;
+import models.producer.Producer;
 
 import java.util.ArrayList;
 

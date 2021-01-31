@@ -1,8 +1,9 @@
 import fileio.input.*;
 import fileio.output.SimulationResult;
 
-import fileio.output.data.MonthlyStat;
+import models.producer.MonthlyStat;
 import models.*;
+import models.producer.Producer;
 
 import java.util.ArrayList;
 

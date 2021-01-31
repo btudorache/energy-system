@@ -1,4 +1,4 @@
-package entities;
+package models.producer;
 
 /**
  * Types of energy produced by EnergyProducers
