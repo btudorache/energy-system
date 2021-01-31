@@ -108,16 +108,16 @@ Etapele simularii sunt urmatoarele:
 
 ## Design Patterns
 
-In implementarea simularii au fost folosite urmatoarele **design patterns**:
+In implementarea simularii am fost folosite urmatoarele **design patterns**:
 
 * **Singleton** si **Factory** pentru a construi *strategiile* de alegere ale distribuitorilor si pentru a stabili o singura 
 entitate in mod global care se ocupa de acest lucru
 
 * **Strategy** pentru a separa distribuitorii de alegerea *algoritmului de cautare a producatorilor* si pentru a oferi
-posibilitatea de extindere a acestei functionalitati  
+posibilitatea de extindere a acestei functionalitati
 
 * **Observer** pentrua facilita sistemul de notificare a distribuitorilor de catre producator in cazul in care acesta isi
-schimba pretul energiei.
+schimba pretul energiei
 
 ## Extra
 
@@ -132,10 +132,10 @@ Biblioteci necesare pentru implementare (parsarea datelor JSON):
 * Jackson Annotations
 
 Am inclus exemplele de [input](https://github.com/btudorache/energy-system/blob/master/extra/inputExample.json) 
-si de [output](https://github.com/btudorache/energy-system/blob/master/extra/outputExample.json) din enuntul problemei
+si de [output](https://github.com/btudorache/energy-system/blob/master/extra/outputExample.json) din enuntul problemei.
 
 Pentru cerintele complete ale proiectului consultati enuntul pentru [prima etapa](https://github.com/btudorache/energy-system/blob/master/extra/enunt_etapa1.pdf) 
-si a [doua etapa](https://github.com/btudorache/energy-system/blob/master/extra/enunt_etapa2.pdf)
+si a [doua etapa](https://github.com/btudorache/energy-system/blob/master/extra/enunt_etapa2.pdf).
 
 Pentru detalii complete de implementare consultati fisierele README pentru [prima etapa](https://github.com/btudorache/energy-system/blob/master/extra/README_etapa1) 
-si a [doua etapa](https://github.com/btudorache/energy-system/blob/master/extra/README_etapa2)
+si a [doua etapa](https://github.com/btudorache/energy-system/blob/master/extra/README_etapa2).
